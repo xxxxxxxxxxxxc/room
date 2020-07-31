@@ -73,7 +73,7 @@ public class SubmitActivity extends AppCompatActivity {
         person.name = this.name.getText().toString();
         person.age = Integer.parseInt(this.age.getText().toString());
         person.gender = Integer.parseInt(this.gender.getText().toString());
-        Disposable subscribe = MyApplication.getInstance().appDatabase.personDao()
+        Disposable subscribe = LocalDataSource
                 .insertPerson(person)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

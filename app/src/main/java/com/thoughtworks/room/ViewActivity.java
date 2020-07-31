@@ -34,7 +34,7 @@ public class ViewActivity extends AppCompatActivity {
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(this, R.layout.mypersonitem, R.id.personContent);
         this.personList.setAdapter(stringArrayAdapter);
 
-        Disposable person1 = MyApplication.getInstance().appDatabase.personDao()
+        Disposable person1 = LocalDataSource
                 .getAllPerson()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
